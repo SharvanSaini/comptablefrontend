@@ -1,0 +1,46 @@
+<br>
+<div class="container">
+     
+  <div class="row">
+      <div class="col-md-4">
+        <button mat-raised-button (click)="openDialog()">New Patient</button>
+  </div>
+    <div class="col-md-8">
+        <mat-form-field >
+         <mat-label>Search</mat-label>
+            <input matInput placeholder="TYPE" [(ngModel)]="searchstring">
+        </mat-form-field> 
+    </div>
+</div>
+</div>
+
+<table class="table ">
+    <thead>
+      <tr>
+        <!-- <th>ID</th>    -->
+        <th>Date</th>
+        <th>No. of meeting Attend</th>
+        <th>Subject of Meeting</th>
+        <th>Time Slot</th>
+        <th>Work Details</th>
+        <th>Extra Details</th>
+        <th>Delete</th>
+
+      </tr>
+      </thead>
+      <tbody>
+
+          <tr *ngFor="let e of recordList| filter : searchstring |  paginate: { itemsPerPage:5, currentPage: p }; let i=index" >
+            <!-- <td>{{e.id}}</td> -->
+            <td>{{e.attend | date :'dd-MM-yyyy'}}</td>
+            <td>{{e.meetingnumber}}</td>
+            <td>{{e.subject}}</td>
+            <td>{{e.slot }}</td>
+            <td>{{e.workdetails}}</td>
+            <td>{{e.extradetails}}</td>
+         
+            <td><input type="button" class="btn btn-danger" (click)="deleteRecord(e.id)" value="Delete"/></td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>

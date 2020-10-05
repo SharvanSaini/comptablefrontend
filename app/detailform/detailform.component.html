@@ -1,0 +1,63 @@
+<form [formGroup]="recordForm" (ngSubmit)="onSubmit(recordForm.value)" class="form-record" style="border:1px solid #ccc">
+  
+    
+    <div class="container" class="make-scrollable">
+     
+      <div class="text-center">
+        <h1 >Record Entry Page</h1>
+        <p><b>Please fill in this form to new record.</b></p>
+        <div class="login-bar"></div>
+    </div>
+  
+  
+    <div class="form-group">
+        <label class="form-label" for="attend"><b>Meeting Date</b></label>
+        <input type="date" formControlName="attend" class="form-control" required autofocus>
+      </div>
+     
+  
+      <div class="form-group">
+        <label class="form-label" for="meetingnumber"><b>No. of Meeting Attended</b></label>
+        <input type="text" formControlName="meetingnumber" class="form-control" placeholder="Meeting No." required autofocus>
+      </div>
+    
+  
+      <div class="form-group">
+        <label class="form-label" for="subject"><b>Subject of Meeting</b></label>
+        <input type="text" formControlName="subject" class="form-control" placeholder="Subject" required autofocus>
+      </div>
+     
+      
+      <div class="form-group">
+        <label class="form-label" for="slot"><b>Time slot</b></label>
+        <input type="text" formControlName="slot" class="form-control" placeholder="Slot" required autofocus>
+      </div>
+     
+      
+      <div class="form-group">
+        <label class="form-label" for="workdetails"><b>Work Details</b></label>
+        <input type="text" formControlName="workdetails" class="form-control" placeholder="Work" required autofocus>
+      </div>
+     
+
+      
+      <div class="form-group">
+        <label class="form-label" for="extradetails"><b>Extra Details</b></label>
+        <input type="text" formControlName="extradetails" class="form-control" placeholder="Extra" required autofocus>
+      </div>
+     
+    
+      <div class="clearfix">
+        <div class="form-group">
+          <button class="btn btn-primary" [disabled]="!recordForm.valid">Register</button>
+        </div>    
+       
+      </div>
+    </div>
+  
+  </form>
+  <mat-dialog-actions align="end">
+    <button  class="btn btn-primary" mat-button mat-dialog-close>Cancel</button>
+   
+  </mat-dialog-actions>
+  
